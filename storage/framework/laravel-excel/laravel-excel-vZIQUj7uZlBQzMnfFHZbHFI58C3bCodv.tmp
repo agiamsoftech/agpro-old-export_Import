@@ -1,0 +1,6 @@
+<?php
+SELECT dms_datas.*,dealer_makes.id as make_id, dealer_models.id as model_id from dms_datas left join dealer_makes on dms_datas.vehile_make_dms=dealer_makes.dealsin left join dealer_models on dms_datas.vehice_model_dms = dealer_models.model  where dms_datas.customer_id = 166
+
+$dms_datas = VehicleMaster::leftjoin('dealer_makes','dealer_makes.id','=','vehicle_masters.vehicle_make')
+					->leftjoin('dealer_models','dealer_models.id','=','vehicle_masters.vehicle_model')
+					->where('vehicle_masters.dealer_id', '=', '1')
